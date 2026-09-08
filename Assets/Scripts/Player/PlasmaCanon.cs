@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class PlasmaCanon : MonoBehaviour
 {
     [Header("Projectile Settings")]
-    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private GameObject  projectilePrefabs;
 
     [Header("Ammo Settings")]
     [SerializeField] private int ammo = 200;
@@ -41,7 +41,7 @@ public class PlasmaCanon : MonoBehaviour
 
     private void Fire()
     {
-        if (projectilePrefab == null)
+        if (projectilePrefabs.[0] == null)
         {
             Debug.LogWarning("PlasmaCanon: No projectile prefab assigned!");
             return;
@@ -51,8 +51,8 @@ public class PlasmaCanon : MonoBehaviour
         nextFireTime = Time.time + shootingRate;
 
         //Instantiation
-        Instantiate(projectilePrefab,firePoint1.position, firePoint1.rotation);
-        Instantiate(projectilePrefab,firePoint2.position,firePoint2.rotation);
+        Instantiate(projectilePrefabs.[0],firePoint1.position, firePoint1.rotation);
+        Instantiate(projectilePrefabs.[0],firePoint2.position,firePoint2.rotation);
 
         Debug.Log($"Fired! Ammo remaining: {ammo}");
 
@@ -62,6 +62,8 @@ public class PlasmaCanon : MonoBehaviour
             // OnOutOfAmmo?.Invoke(); // Uncomment if using an event
         }
     }
+
+    
 
     // Optional: call this to reload
     public void Reload(int amount)

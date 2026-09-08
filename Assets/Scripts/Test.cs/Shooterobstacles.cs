@@ -1,8 +1,7 @@
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Shooterobstacles : Obstacle, IMimicable
+public class Shooterobstacles : Obstacle, IMimicable //This is an interface it creates a blueprint for the requirements of a class
 {
      [Header("Aggro Settings")]
     public float aggroSpeed = 7f;
