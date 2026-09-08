@@ -150,11 +150,10 @@ public class Scarab : MonoBehaviour
 
     private void WanderingControl()
     {
-        if(Vector2.Distance(playerTransform.position, transform.position) < 100f)
+        if(Vector2.Distance(playerTransform.position, transform.position) >= 40f)
         {
             canShoot = false;
             Vector2 toMother = (Vector2)playerTransform.position - (Vector2)transform.position;
-            float distanceFromSpawn = toMother.magnitude;
             float angle = Mathf.Atan2(toMother.y,toMother.x) * Mathf.Rad2Deg - 90f;
             float smoothedAngle = Mathf.LerpAngle(rb.rotation, angle, rotationSpeed * Time.fixedDeltaTime);
             rb.MoveRotation(smoothedAngle);
